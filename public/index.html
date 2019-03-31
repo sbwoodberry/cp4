@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css" />
+  <title>Ward Directory</title>
+</head>
+
+<body>
+  <div id="title">
+    <h1>PMS 1st Ward Directory</h1>
+  </div>
+  <hr>
+  <div id="directory-content">
+    <div class="sidebarLeadership">
+      <h3>Ward Leadership</h3>
+      <h5>Bishopric</h5>
+      <ul class="leadershipGroup">
+        <li>Bishop - Scott Birrell</li>
+        <li>1<sup>st</sup> Couns. - Keeyan Parker</li>
+        <li>2<sup>nd</sup> Couns. - Johnathan Sugihara</li>
+      </ul>
+      <h5>Relief Society</h5>
+      <ul class="leadershipGroup">
+        <li>President - Mary Ann Anderson</li>
+        <li>1<sup>st</sup> Couns. - Aubrey Knighton</li>
+        <li>2<sup>nd</sup> Couns. - Amber Fisher</li>
+      </ul>
+      <h5>Elders Quorum</h5>
+      <ul class="leadershipGroup">
+        <li>President - Wes Glissmeyer</li>
+        <li>1<sup>st</sup> Couns. - Dan Schindler</li>
+        <li>2<sup>nd</sup> Couns. - Sam Woodbury</li>
+      </ul>
+      <h5>Sunday School</h5>
+      <ul class="leadershipGroup">
+        <li>President - Jason Stewart</li>
+        <li>1<sup>st</sup> Couns. - Kimball Leavitt</li>
+        <li>2<sup>nd</sup> Couns. - Derek Steele</li>
+      </ul>
+    </div>
+
+    <div id = "app" class="mainDirectory">
+      <h2>Add a Contact</h2>
+      <div class="add">
+        <input v-model="aptNumber" placeholder="Apartment Number">
+        <input v-model="firstName" placeholder="Last Name">
+        <input v-model="lastName" placeholder="First Name">
+        <input v-model="email" placeholder="Email">
+        <button @click="add">Add Contact</button>
+      </div>
+      <br><br>
+      <h2>Directory</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Apt #</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Email</th>
+            <th scope="col"> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="contact in contacts">
+            <th scope="row">{{contact.aptNumber}}</th>
+            <td>{{contact.lastName}}</td>
+            <td>{{contact.firstName}}</td>
+            <td>{{contact.email}}</td>
+            <td><button v-on:click="deleteContact(contact)" class="delete">X</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="https://github.com/sbwoodberry/cp4">Github Code</a>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+  <script src="/script.js"></script>
+</body>
+
+</html>
